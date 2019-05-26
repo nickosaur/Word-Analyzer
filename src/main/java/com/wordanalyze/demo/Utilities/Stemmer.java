@@ -1,5 +1,8 @@
 package com.wordanalyze.demo.Utilities;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 /**
  * Stemmer utilizes Porter2 algorithm that can be found :
  *      https://snowballstem.org/algorithms/english/stemmer.html
@@ -7,12 +10,137 @@ package com.wordanalyze.demo.Utilities;
  * Stemmer provides a slightly more aggressive stemmer algorithm that
  * stems out irregular verbs too
  */
-public final class Stemmer {
+public class Stemmer {
     private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+    private String originalWord;
+    private HashMap<String, String> irregularVerbs; //
+    public Stemmer(){
+        initializeIrregularVerbs();
+    }
 
-    // all words will be converted into lower case upon stemming
-    private Stemmer(){}
+    /**
+     * this method initializes 50 most common irregular verbs
+     * and their base form
+     * Preserves base form words such that if the base form exists
+     * in the hashMap then it will not go through stemming
+     */
+    private void initializeIrregularVerbs(){
+        irregularVerbs = new HashMap<>();
+        irregularVerbs.put("said", "say");
+        irregularVerbs.put("say", "say");
+        irregularVerbs.put("made", "make");
+        irregularVerbs.put("make", "make");
+        irregularVerbs.put("went", "go");
+        irregularVerbs.put("gone", "go");
+        irregularVerbs.put("go", "go");
+        irregularVerbs.put("took", "take");
+        irregularVerbs.put("taken", "take");
+        irregularVerbs.put("take", "take");
+        irregularVerbs.put("came", "come");
+        irregularVerbs.put("come", "come");
+        irregularVerbs.put("saw", "see");
+        irregularVerbs.put("see", "see");
+        irregularVerbs.put("seen", "see");
+        irregularVerbs.put("knew", "know");
+        irregularVerbs.put("known", "know");
+        irregularVerbs.put("know", "know");
+        irregularVerbs.put("got", "get");
+        irregularVerbs.put("gotten", "get");
+        irregularVerbs.put("get", "get");
+        irregularVerbs.put("gave", "give");
+        irregularVerbs.put("given", "give");
+        irregularVerbs.put("give", "give");
+        irregularVerbs.put("found", "find");
+        irregularVerbs.put("find", "find");
+        irregularVerbs.put("thought", "think");
+        irregularVerbs.put("think", "think");
+        irregularVerbs.put("told", "tell");
+        irregularVerbs.put("tell", "tell");
+        irregularVerbs.put("became", "become");
+        irregularVerbs.put("become", "become");
+        irregularVerbs.put("showed", "show");
+        irregularVerbs.put("shown", "show");
+        irregularVerbs.put("show", "show");
+        irregularVerbs.put("left", "leave");
+        irregularVerbs.put("leave", "leave");
+        irregularVerbs.put("felt", "feel");
+        irregularVerbs.put("feel", "feel");
+        irregularVerbs.put("brought", "bring");
+        irregularVerbs.put("bring", "bring");
+        irregularVerbs.put("began", "begin");
+        irregularVerbs.put("begun", "begin");
+        irregularVerbs.put("begin", "begin");
+        irregularVerbs.put("kept", "keep");
+        irregularVerbs.put("keep", "keep");
+        irregularVerbs.put("held", "hold");
+        irregularVerbs.put("hold", "hold");
+        irregularVerbs.put("wrote", "write");
+        irregularVerbs.put("written", "write");
+        irregularVerbs.put("write", "write");
+        irregularVerbs.put("stood", "stand");
+        irregularVerbs.put("heard", "hear");
+        irregularVerbs.put("hear", "hear");
+        irregularVerbs.put("meant", "mean");
+        irregularVerbs.put("mean", "mean");
+        irregularVerbs.put("met", "meet");
+        irregularVerbs.put("meet", "meet");
+        irregularVerbs.put("ran", "run");
+        irregularVerbs.put("run", "run");
+        irregularVerbs.put("paid", "pay");
+        irregularVerbs.put("pay", "pay");
+        irregularVerbs.put("sat", "sit");
+        irregularVerbs.put("sit", "sit");
+        irregularVerbs.put("spoke", "speak");
+        irregularVerbs.put("spoken", "speak");
+        irregularVerbs.put("speak", "speak");
+        irregularVerbs.put("lied", "lie");
+        irregularVerbs.put("lie", "lie");
+        irregularVerbs.put("led", "lead");
+        irregularVerbs.put("lead", "lead");
+        irregularVerbs.put("grew", "grow");
+        irregularVerbs.put("grown", "grow");
+        irregularVerbs.put("grow", "grow");
+        irregularVerbs.put("lost", "lose");
+        irregularVerbs.put("lose", "lose");
+        irregularVerbs.put("fell", "fall");
+        irregularVerbs.put("fallen", "fall");
+        irregularVerbs.put("fall", "fall");
+        irregularVerbs.put("sent", "send");
+        irregularVerbs.put("send", "send");
+        irregularVerbs.put("built", "build");
+        irregularVerbs.put("build", "build");
+        irregularVerbs.put("understood", "understand");
+        irregularVerbs.put("understand", "understand");
+        irregularVerbs.put("drew", "draw");
+        irregularVerbs.put("drawn", "draw");
+        irregularVerbs.put("draw", "draw");
+        irregularVerbs.put("spent", "spend");
+        irregularVerbs.put("spend", "spend");
+        irregularVerbs.put("risen", "rise");
+        irregularVerbs.put("rose", "rise");
+        irregularVerbs.put("rise", "rise");
+        irregularVerbs.put("driven", "drive");
+        irregularVerbs.put("drove", "drive");
+        irregularVerbs.put("drive", "drive");
+        irregularVerbs.put("bought", "buy");
+        irregularVerbs.put("buy", "buy");
+        irregularVerbs.put("worn", "wear");
+        irregularVerbs.put("wore", "wear");
+        irregularVerbs.put("wear", "wear");
+        irregularVerbs.put("chose", "choose");
+        irregularVerbs.put("chosen", "choose");
+        irregularVerbs.put("choose", "choose");
+        irregularVerbs.put("ate", "eat");
+        irregularVerbs.put("eat", "eat");
+    }
 
+    public void setOriginalWord(String originalWord){
+        this.originalWord = originalWord;
+    }
+
+    public String getOriginalWord(){
+        return this.originalWord;
+    }
     /**
      * Checks if the word is not a null reference or an empty string
      * @param word - word to be checked
@@ -724,10 +852,16 @@ public final class Stemmer {
         return word;
     }
 
-    public static String Stem(String word){
+    public String Stem(){
+        String word = this.getOriginalWord();
         if(!isValidString(word)){
             return word;
         }
+
+        if (irregularVerbs.containsKey(word)){
+            return irregularVerbs.get(word);
+        }
+
         word = Step1(word);
         word = Step2(word);
         word = Step3(word);

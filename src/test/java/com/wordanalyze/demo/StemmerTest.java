@@ -5,8 +5,17 @@ import org.junit.Test;
 
 public class StemmerTest {
 
+    private Stemmer stemmer = new Stemmer();
+
     @Test
-    public void test1Step1a() throws Exception{
-        assert ("caress".equals(Stemmer.Stem("caresses")));
+    public void test1forStep1a() throws Exception{
+        stemmer.setOriginalWord("caresses");
+        assert ("caress".equals(stemmer.Stem()));
+    }
+
+    @Test
+    public void test1forIrregularVerbs() throws Exception{
+        stemmer.setOriginalWord("ate");
+        assert ("eat".equals(stemmer.Stem()));
     }
 }
