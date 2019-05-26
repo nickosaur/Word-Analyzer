@@ -132,6 +132,9 @@ public class Stemmer {
         irregularVerbs.put("choose", "choose");
         irregularVerbs.put("ate", "eat");
         irregularVerbs.put("eat", "eat");
+        irregularVerbs.put("swum", "swim");
+        irregularVerbs.put("swam", "swim");
+        irregularVerbs.put("swim", "swim");
     }
 
     public void setOriginalWord(String originalWord){
