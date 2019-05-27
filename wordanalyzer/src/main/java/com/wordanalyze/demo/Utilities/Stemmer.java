@@ -13,9 +13,9 @@ import java.util.HashSet;
 public class Stemmer {
     private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
     private String originalWord;
-    private HashMap<String, String> irregularVerbs; //
+    private HashMap<String, String> exceptionRules; //
     public Stemmer(){
-        initializeIrregularVerbs();
+        initializeExceptionRules();
     }
 
     /**
@@ -23,118 +23,141 @@ public class Stemmer {
      * and their base form
      * Preserves base form words such that if the base form exists
      * in the hashMap then it will not go through stemming
+     * Also initializes a number of exceptions
      */
-    private void initializeIrregularVerbs(){
-        irregularVerbs = new HashMap<>();
-        irregularVerbs.put("said", "say");
-        irregularVerbs.put("say", "say");
-        irregularVerbs.put("made", "make");
-        irregularVerbs.put("make", "make");
-        irregularVerbs.put("went", "go");
-        irregularVerbs.put("gone", "go");
-        irregularVerbs.put("go", "go");
-        irregularVerbs.put("took", "take");
-        irregularVerbs.put("taken", "take");
-        irregularVerbs.put("take", "take");
-        irregularVerbs.put("came", "come");
-        irregularVerbs.put("come", "come");
-        irregularVerbs.put("saw", "see");
-        irregularVerbs.put("see", "see");
-        irregularVerbs.put("seen", "see");
-        irregularVerbs.put("knew", "know");
-        irregularVerbs.put("known", "know");
-        irregularVerbs.put("know", "know");
-        irregularVerbs.put("got", "get");
-        irregularVerbs.put("gotten", "get");
-        irregularVerbs.put("get", "get");
-        irregularVerbs.put("gave", "give");
-        irregularVerbs.put("given", "give");
-        irregularVerbs.put("give", "give");
-        irregularVerbs.put("found", "find");
-        irregularVerbs.put("find", "find");
-        irregularVerbs.put("thought", "think");
-        irregularVerbs.put("think", "think");
-        irregularVerbs.put("told", "tell");
-        irregularVerbs.put("tell", "tell");
-        irregularVerbs.put("became", "become");
-        irregularVerbs.put("become", "become");
-        irregularVerbs.put("showed", "show");
-        irregularVerbs.put("shown", "show");
-        irregularVerbs.put("show", "show");
-        irregularVerbs.put("left", "leave");
-        irregularVerbs.put("leave", "leave");
-        irregularVerbs.put("felt", "feel");
-        irregularVerbs.put("feel", "feel");
-        irregularVerbs.put("brought", "bring");
-        irregularVerbs.put("bring", "bring");
-        irregularVerbs.put("began", "begin");
-        irregularVerbs.put("begun", "begin");
-        irregularVerbs.put("begin", "begin");
-        irregularVerbs.put("kept", "keep");
-        irregularVerbs.put("keep", "keep");
-        irregularVerbs.put("held", "hold");
-        irregularVerbs.put("hold", "hold");
-        irregularVerbs.put("wrote", "write");
-        irregularVerbs.put("written", "write");
-        irregularVerbs.put("write", "write");
-        irregularVerbs.put("stood", "stand");
-        irregularVerbs.put("heard", "hear");
-        irregularVerbs.put("hear", "hear");
-        irregularVerbs.put("meant", "mean");
-        irregularVerbs.put("mean", "mean");
-        irregularVerbs.put("met", "meet");
-        irregularVerbs.put("meet", "meet");
-        irregularVerbs.put("ran", "run");
-        irregularVerbs.put("run", "run");
-        irregularVerbs.put("paid", "pay");
-        irregularVerbs.put("pay", "pay");
-        irregularVerbs.put("sat", "sit");
-        irregularVerbs.put("sit", "sit");
-        irregularVerbs.put("spoke", "speak");
-        irregularVerbs.put("spoken", "speak");
-        irregularVerbs.put("speak", "speak");
-        irregularVerbs.put("lied", "lie");
-        irregularVerbs.put("lie", "lie");
-        irregularVerbs.put("led", "lead");
-        irregularVerbs.put("lead", "lead");
-        irregularVerbs.put("grew", "grow");
-        irregularVerbs.put("grown", "grow");
-        irregularVerbs.put("grow", "grow");
-        irregularVerbs.put("lost", "lose");
-        irregularVerbs.put("lose", "lose");
-        irregularVerbs.put("fell", "fall");
-        irregularVerbs.put("fallen", "fall");
-        irregularVerbs.put("fall", "fall");
-        irregularVerbs.put("sent", "send");
-        irregularVerbs.put("send", "send");
-        irregularVerbs.put("built", "build");
-        irregularVerbs.put("build", "build");
-        irregularVerbs.put("understood", "understand");
-        irregularVerbs.put("understand", "understand");
-        irregularVerbs.put("drew", "draw");
-        irregularVerbs.put("drawn", "draw");
-        irregularVerbs.put("draw", "draw");
-        irregularVerbs.put("spent", "spend");
-        irregularVerbs.put("spend", "spend");
-        irregularVerbs.put("risen", "rise");
-        irregularVerbs.put("rose", "rise");
-        irregularVerbs.put("rise", "rise");
-        irregularVerbs.put("driven", "drive");
-        irregularVerbs.put("drove", "drive");
-        irregularVerbs.put("drive", "drive");
-        irregularVerbs.put("bought", "buy");
-        irregularVerbs.put("buy", "buy");
-        irregularVerbs.put("worn", "wear");
-        irregularVerbs.put("wore", "wear");
-        irregularVerbs.put("wear", "wear");
-        irregularVerbs.put("chose", "choose");
-        irregularVerbs.put("chosen", "choose");
-        irregularVerbs.put("choose", "choose");
-        irregularVerbs.put("ate", "eat");
-        irregularVerbs.put("eat", "eat");
-        irregularVerbs.put("swum", "swim");
-        irregularVerbs.put("swam", "swim");
-        irregularVerbs.put("swim", "swim");
+    private void initializeExceptionRules(){
+        exceptionRules = new HashMap<>();
+        exceptionRules.put("said", "say");
+        exceptionRules.put("say", "say");
+        exceptionRules.put("made", "make");
+        exceptionRules.put("make", "make");
+        exceptionRules.put("went", "go");
+        exceptionRules.put("gone", "go");
+        exceptionRules.put("go", "go");
+        exceptionRules.put("took", "take");
+        exceptionRules.put("taken", "take");
+        exceptionRules.put("take", "take");
+        exceptionRules.put("came", "come");
+        exceptionRules.put("come", "come");
+        exceptionRules.put("saw", "see");
+        exceptionRules.put("see", "see");
+        exceptionRules.put("seen", "see");
+        exceptionRules.put("knew", "know");
+        exceptionRules.put("known", "know");
+        exceptionRules.put("know", "know");
+        exceptionRules.put("got", "get");
+        exceptionRules.put("gotten", "get");
+        exceptionRules.put("get", "get");
+        exceptionRules.put("gave", "give");
+        exceptionRules.put("given", "give");
+        exceptionRules.put("give", "give");
+        exceptionRules.put("found", "find");
+        exceptionRules.put("find", "find");
+        exceptionRules.put("thought", "think");
+        exceptionRules.put("think", "think");
+        exceptionRules.put("told", "tell");
+        exceptionRules.put("tell", "tell");
+        exceptionRules.put("became", "become");
+        exceptionRules.put("become", "become");
+        exceptionRules.put("showed", "show");
+        exceptionRules.put("shown", "show");
+        exceptionRules.put("show", "show");
+        exceptionRules.put("left", "leave");
+        exceptionRules.put("leave", "leave");
+        exceptionRules.put("felt", "feel");
+        exceptionRules.put("feel", "feel");
+        exceptionRules.put("brought", "bring");
+        exceptionRules.put("bring", "bring");
+        exceptionRules.put("began", "begin");
+        exceptionRules.put("begun", "begin");
+        exceptionRules.put("begin", "begin");
+        exceptionRules.put("kept", "keep");
+        exceptionRules.put("keep", "keep");
+        exceptionRules.put("held", "hold");
+        exceptionRules.put("hold", "hold");
+        exceptionRules.put("wrote", "write");
+        exceptionRules.put("written", "write");
+        exceptionRules.put("write", "write");
+        exceptionRules.put("stood", "stand");
+        exceptionRules.put("heard", "hear");
+        exceptionRules.put("hear", "hear");
+        exceptionRules.put("meant", "mean");
+        exceptionRules.put("mean", "mean");
+        exceptionRules.put("met", "meet");
+        exceptionRules.put("meet", "meet");
+        exceptionRules.put("ran", "run");
+        exceptionRules.put("run", "run");
+        exceptionRules.put("paid", "pay");
+        exceptionRules.put("pay", "pay");
+        exceptionRules.put("sat", "sit");
+        exceptionRules.put("sit", "sit");
+        exceptionRules.put("spoke", "speak");
+        exceptionRules.put("spoken", "speak");
+        exceptionRules.put("speak", "speak");
+        exceptionRules.put("lied", "lie");
+        exceptionRules.put("lie", "lie");
+        exceptionRules.put("led", "lead");
+        exceptionRules.put("lead", "lead");
+        exceptionRules.put("grew", "grow");
+        exceptionRules.put("grown", "grow");
+        exceptionRules.put("grow", "grow");
+        exceptionRules.put("lost", "lose");
+        exceptionRules.put("lose", "lose");
+        exceptionRules.put("fell", "fall");
+        exceptionRules.put("fallen", "fall");
+        exceptionRules.put("fall", "fall");
+        exceptionRules.put("sent", "send");
+        exceptionRules.put("send", "send");
+        exceptionRules.put("built", "build");
+        exceptionRules.put("build", "build");
+        exceptionRules.put("understood", "understand");
+        exceptionRules.put("understand", "understand");
+        exceptionRules.put("drew", "draw");
+        exceptionRules.put("drawn", "draw");
+        exceptionRules.put("draw", "draw");
+        exceptionRules.put("spent", "spend");
+        exceptionRules.put("spend", "spend");
+        exceptionRules.put("risen", "rise");
+        exceptionRules.put("rose", "rise");
+        exceptionRules.put("rise", "rise");
+        exceptionRules.put("driven", "drive");
+        exceptionRules.put("drove", "drive");
+        exceptionRules.put("drive", "drive");
+        exceptionRules.put("bought", "buy");
+        exceptionRules.put("buy", "buy");
+        exceptionRules.put("worn", "wear");
+        exceptionRules.put("wore", "wear");
+        exceptionRules.put("wear", "wear");
+        exceptionRules.put("chose", "choose");
+        exceptionRules.put("chosen", "choose");
+        exceptionRules.put("choose", "choose");
+        exceptionRules.put("ate", "eat");
+        exceptionRules.put("eat", "eat");
+        exceptionRules.put("swum", "swim");
+        exceptionRules.put("swam", "swim");
+        exceptionRules.put("swim", "swim");
+        exceptionRules.put("skis", "ski");
+        exceptionRules.put("skies", "sky");
+        exceptionRules.put("dying", "die");
+        exceptionRules.put("lying", "lie");
+        exceptionRules.put("tying", "tie");
+        exceptionRules.put("idly", "idl");
+        exceptionRules.put("gently", "gentl");
+        exceptionRules.put("ugly", "ugli");
+        exceptionRules.put("early", "earli");
+        exceptionRules.put("only", "onli");
+        exceptionRules.put("singly", "singl");
+        exceptionRules.put("sky", "sky");
+        exceptionRules.put("news", "news");
+        exceptionRules.put("howe", "howe");
+        exceptionRules.put("atlas", "atlas");
+        exceptionRules.put("cosmos", "cosmos");
+        exceptionRules.put("bias", "bias");
+        exceptionRules.put("endes", "endes");
+        exceptionRules.put("generously", "generou");
+        exceptionRules.put("trying", "try");
+        exceptionRules.put("tried", "try");
+
     }
 
     public void setOriginalWord(String originalWord){
@@ -220,10 +243,6 @@ public class Stemmer {
      */
     private static int countM(String word){
 
-        if (word == null){
-            return -1;
-        }
-
         int m = 0;
         int start = 0;
         int end = word.length();
@@ -247,7 +266,7 @@ public class Stemmer {
             if(isVowelAt(i, word) && i+1 < end){
                 if(isConsonantAt(i+1, word)){
                     m++;
-                    i += 2;
+                    i++;
                 }
             }
         }
@@ -468,9 +487,9 @@ public class Stemmer {
              */
             if(endsWithDoubleConsonant(word)){
                 if(
-                        !word.endsWith("l") ||
-                                !word.endsWith("s") ||
-                                !word.endsWith("z")
+                        !word.endsWith("l") &&
+                        !word.endsWith("s") &&
+                        !word.endsWith("z")
                         ){
                     return replaceLastNWith(1, word, "");
 
@@ -501,7 +520,8 @@ public class Stemmer {
      */
     private static String Step1c(String word){
         if(word.endsWith("y")){
-            if(containsVowel(word)){
+            String stem = replaceLastNWith(1, word, "");
+            if(containsVowel(stem)){
                 return replaceLastNWith(1,word,"i");
             }
         }
@@ -651,6 +671,16 @@ public class Stemmer {
         if(word.endsWith("biliti")) {
             return changeWordwithSuffix(word, "biliti", "ble", 0);
         }
+
+        // hopefulli -> hopeful
+        if(word.endsWith("fulli")){
+            return changeWordwithSuffix(word, "fulli", "ful", 0);
+        }
+
+        // hopelessli -> hopeless
+        if(word.endsWith("fulli")){
+            return changeWordwithSuffix(word, "lessli", "less", 0);
+        }
         return word;
     }
 
@@ -767,8 +797,8 @@ public class Stemmer {
             String stem = replaceLastNWith(3, word, "");
             if (
                     countM(stem) > 1 &&
-                            (stem.endsWith("S") || stem.endsWith("T"))
-                    ){
+                    (stem.endsWith("s") || stem.endsWith("t"))
+               ){
                 return stem;
             }
             else return word;
@@ -821,15 +851,18 @@ public class Stemmer {
 
         // probate -> probat
         // rate -> rate
+        // cease -> ceas
         if(word.endsWith("e")){
-            word = changeWordwithSuffix(word, "e", "", 1);
-        }
-
-        //
-        if (word.endsWith("e")){
-            if (countM(word) == 1 && (!endsWithCVC(word))){
-                word = replaceLastNWith(1, word, "");
+            String stem = replaceLastNWith(1, word, "");
+            int m = countM(stem);
+            if (m > 1){
+                return stem;
             }
+
+            if (m == 1 && !endsWithCVC(stem)){
+                return stem;
+            }
+                return word;
         }
 
         return word;
@@ -841,9 +874,9 @@ public class Stemmer {
         // roll -> roll
         if (
                 countM(word) > 1   &&
-                        word.endsWith("l") &&
-                        endsWithDoubleConsonant(word)
-                ){
+                word.endsWith("l") &&
+                endsWithDoubleConsonant(word)
+           ){
             word = replaceLastNWith(1, word, "");
         }
         return word;
@@ -856,20 +889,33 @@ public class Stemmer {
     }
 
     public String Stem(){
+        boolean specialRule = false;
         String word = this.getOriginalWord();
+        String stem = "";
         if(!isValidString(word)){
             return word;
         }
 
-        if (irregularVerbs.containsKey(word)){
-            return irregularVerbs.get(word);
+        if(exceptionRules.containsKey(word)){
+            return exceptionRules.get(word);
         }
 
+        if(word.startsWith("gener")){
+            stem = "gene";
+            word = word.substring(4,word.length());
+            specialRule = true;
+        }
+
+        //TODO REMOVE PRINTS
         word = Step1(word);
         word = Step2(word);
         word = Step3(word);
         word = Step4(word);
         word = Step5(word);
+
+        if (specialRule){
+            word = stem + word;
+        }
         return word;
     }
 }
