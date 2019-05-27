@@ -303,5 +303,5 @@ public class StemmerTest {
         stemmer.setOriginalWord("probate");
         assert ("probat".equals(stemmer.Stem()));
     }
-    
+
 }
