@@ -39,9 +39,7 @@ public class Word {
     }
 
     public void updateWord(String word){
-        System.out.println(this.word.length() + " is default length");
-        if(this.word.length() > word.length()){
-            System.out.println("in here");
+        if(this.word.length() == 0 || this.word.length() > word.length()){
             setWord(word);
         }
         incrementFrequency();

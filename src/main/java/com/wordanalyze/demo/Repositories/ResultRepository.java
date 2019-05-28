@@ -20,8 +20,7 @@ public class ResultRepository {
     private String resultsLocation;
 
     public ResultRepository(){
-        results = new ArrayList<>();
-        frequencyMap = new HashMap<>();
+
         initializeStopWords();
     }
 
@@ -231,6 +230,8 @@ public class ResultRepository {
      *///TODO STOPWORD
     public Result analyzeText(String fileName, boolean excludeStopWords){
 
+        results = new ArrayList<>();
+        frequencyMap = new HashMap<>();
         // fileName is already validated in the controller
         File file = new File(fileName);
         Stemmer stemmer = new Stemmer();
@@ -279,8 +280,6 @@ public class ResultRepository {
         for (int i = 0; i < 10; i++){
             if (!wordPQ.isEmpty()) {
                 Word word = wordPQ.remove();
-                System.out.println(word.getCount());
-                System.out.println(word.getWord());
                 res.insertToWordList(word);
             }
             else{
