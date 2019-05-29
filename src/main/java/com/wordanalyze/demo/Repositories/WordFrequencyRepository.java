@@ -5,6 +5,7 @@ import com.wordanalyze.demo.POJO.Result;
 import com.wordanalyze.demo.POJO.Word;
 import com.wordanalyze.demo.POJO.WordComparator;
 import com.wordanalyze.demo.Utilities.Stemmer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -12,14 +13,14 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 @Repository
-public class ResultRepository {
+public class WordFrequencyRepository {
     private List<Result> results;
     private HashMap<String, Word> frequencyMap;
     private HashSet<String> stopWordsList;
     private Properties prop;
     private String resultsLocation;
 
-    public ResultRepository(){
+    public WordFrequencyRepository(){
 
         initializeStopWords();
     }
@@ -253,17 +254,23 @@ public class ResultRepository {
              * be stemming them.
              *
              * Example : 10, it's, her's, Adam's
-             * The regex removes all punctuations except those within words
+             * The regex removes all punctuations except those within words.
+             * This is to prevent truncation of words like
+             *      he'll -> hell or she's -> shes
              */
-            s = s.toLowerCase();
-            s = s.replaceAll("[\\p{P}&&[^']]|(?<![a-zA-Z])'|'(?![a-zA-Z])"
+            s = s.toLowerCase().replaceAll("[\\p{P}&&[^']]|(?<![a-z])'|'(?![a-z])"
                     ,"");
+
+            if (s.length() == 0){
+                continue;
+            }
+
             if(excludeStopWords){
                 if(stopWordsList.contains(s)) {
                     continue;
                 }
             }
-            if (!s.matches("[a-zA-Z]+")){
+            if (!s.matches("[a-z]+")){
                 updateFrequencyMap(s,s);
             } else {
                 stemmer.setOriginalWord(s);
@@ -286,7 +293,6 @@ public class ResultRepository {
                 break;
             }
         }
-
         return res;
     }
 }

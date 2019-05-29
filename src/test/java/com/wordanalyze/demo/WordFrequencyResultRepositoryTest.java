@@ -1,15 +1,19 @@
 package com.wordanalyze.demo;
+import com.google.gson.Gson;
 import com.wordanalyze.demo.POJO.Result;
 import com.wordanalyze.demo.POJO.Word;
-import com.wordanalyze.demo.Repositories.ResultRepository;
+import com.wordanalyze.demo.Repositories.WordFrequencyRepository;
 import org.junit.Test;
 
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
-public class ResultRepositoryTest {
-    private ResultRepository resultRepository = new ResultRepository();
-
+public class WordFrequencyResultRepositoryTest {
+    private WordFrequencyRepository resultRepository = new WordFrequencyRepository();
+    private Gson gson = new Gson();
     private final String testDirectory = "./src/test/java/com/wordanalyze/demo/";
+
 
     @Test
     public void test1SimpleFile() throws Exception{
@@ -43,5 +47,21 @@ public class ResultRepositoryTest {
         List<Word> wordList = res.getWordList();
         assert(wordList.get(0).getWord().equals("a"));
         assert(wordList.get(0).getCount() == 10);
+    }
+
+    @Test
+    public void test1LongerFile() throws Exception{
+        Result res = resultRepository.analyzeText(testDirectory+"test3.txt", true);
+        List<Word> wordList = res.getWordList();
+
+        assert(wordList.get(0).getWord().equals("tom"));
+        assert(wordList.get(0).getCount() == 32);
+        assert(wordList.get(1).getWord().equals("daisy"));
+        assert(wordList.get(1).getCount() == 30);
+        /*Properties prop = new Properties();
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dev-app.properties");
+        prop.load(inputStream);
+        System.out.println(prop.getProperty("example.message"));
+        */
     }
 }
