@@ -1,8 +1,14 @@
-package com.wordanalyze.demo.POJO;
+package com.wordanalyze.demo.Utilities;
 
+
+import com.wordanalyze.demo.POJO.Word;
 
 import java.util.Comparator;
 
+/**
+ * Comparator class used to build the priority queue in Result.java to get
+ * top 10 most frequent words
+ */
 public class WordComparator implements Comparator<Word> {
 
     @Override

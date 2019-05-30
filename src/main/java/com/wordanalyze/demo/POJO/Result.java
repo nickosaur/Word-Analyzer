@@ -1,24 +1,28 @@
 package com.wordanalyze.demo.POJO;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-public class Result {
+public class Result{
 
-    private String fileName;
+    private String originalFileName;
+    private String newFileName; // includes modified name
     private boolean stopSetting;
     private List<Word> wordList;
 
     public Result(){
-        this.fileName = "";
-        this.stopSetting = true; // true by default
+        this.originalFileName = "";
+        this.newFileName = "";
+        this.stopSetting = false; // false by default
         this.wordList = new ArrayList<>();
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setNewFileName(String newFileName) {
+        this.newFileName = newFileName;
+    }
+
+    public void setOriginalFileName(String originalFileName){
+        this.originalFileName = originalFileName;
     }
 
     public void setStopSetting(boolean stopSetting) {
@@ -29,8 +33,12 @@ public class Result {
         this.wordList.add(word);
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getNewFileName() {
+        return newFileName;
+    }
+
+    public String getOriginalFileName() {
+        return originalFileName;
     }
 
     public boolean getStopSetting(){
@@ -40,4 +48,6 @@ public class Result {
     public List<Word> getWordList() {
         return wordList;
     }
+
+
 }

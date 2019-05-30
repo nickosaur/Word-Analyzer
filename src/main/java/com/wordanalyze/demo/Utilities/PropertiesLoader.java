@@ -7,7 +7,6 @@ import java.util.Properties;
 public class PropertiesLoader {
 
     private Properties prop;
-    private boolean error = false;
     private static PropertiesLoader ourInstance = new PropertiesLoader();
 
     public static PropertiesLoader getInstance() {
@@ -23,22 +22,19 @@ public class PropertiesLoader {
                          getResourceAsStream("dev-app.properties");
            prop.load(inputStream);
         } catch (IOException e) {
-            System.err.print("error loading properties file");
-            error = true;
+            e.printStackTrace(); // let it fail
         }
     }
 
     public String getDataLocation(){
-        if (!error){
-            return this.prop.getProperty("data_location");
-        }
-        return "";
+        return getProjectRootDirectory() + this.prop.getProperty("data_location");
     }
 
     public String getResultsFile(){
-        if (!error){
-            return this.prop.getProperty("results");
-        }
-        return "";
+        return getProjectRootDirectory() + this.prop.getProperty("results");
+    }
+
+    private String getProjectRootDirectory(){
+        return this.prop.getProperty("root");
     }
 }

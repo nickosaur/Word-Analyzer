@@ -1,11 +1,23 @@
 package com.wordanalyze.demo;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.wordanalyze.demo.POJO.Result;
 import com.wordanalyze.demo.POJO.Word;
 import com.wordanalyze.demo.Repositories.WordFrequencyRepository;
+import com.wordanalyze.demo.Utilities.PropertiesLoader;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -13,7 +25,6 @@ public class WordFrequencyResultRepositoryTest {
     private WordFrequencyRepository resultRepository = new WordFrequencyRepository();
     private Gson gson = new Gson();
     private final String testDirectory = "./src/test/java/com/wordanalyze/demo/";
-
 
     @Test
     public void test1SimpleFile() throws Exception{
@@ -58,10 +69,29 @@ public class WordFrequencyResultRepositoryTest {
         assert(wordList.get(0).getCount() == 32);
         assert(wordList.get(1).getWord().equals("daisy"));
         assert(wordList.get(1).getCount() == 30);
-        /*Properties prop = new Properties();
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dev-app.properties");
-        prop.load(inputStream);
-        System.out.println(prop.getProperty("example.message"));
-        */
+
+        // for external purposes TODO remove
+        PropertiesLoader pl = PropertiesLoader.getInstance();
+        JsonReader reader;
+        try{
+            reader = new JsonReader(new FileReader(pl.getResultsFile()));
+
+            Type typeList = new TypeToken<List<Result>>() {}.getType();
+            Gson gson = new Gson();
+            List<Result> resultsList;
+            resultsList = gson.fromJson(reader, typeList);
+            System.out.println(resultsList.size());
+            String jsonResult = gson.toJson(resultsList);
+
+                FileWriter writer = new FileWriter(pl.getResultsFile());
+                writer.write(jsonResult);
+                writer.close();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //rl = gson.fromJson(pl.getResultsFile(), Result.class);
+
     }
 }

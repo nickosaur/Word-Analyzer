@@ -1,15 +1,23 @@
 package com.wordanalyze.demo.Repositories;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.wordanalyze.demo.POJO.Result;
+import com.wordanalyze.demo.Utilities.ResultComparator;
 import com.wordanalyze.demo.POJO.Word;
-import com.wordanalyze.demo.POJO.WordComparator;
+import com.wordanalyze.demo.Utilities.WordComparator;
+import com.wordanalyze.demo.Utilities.PropertiesLoader;
 import com.wordanalyze.demo.Utilities.Stemmer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 @Repository
@@ -17,11 +25,14 @@ public class WordFrequencyRepository {
     private List<Result> results;
     private HashMap<String, Word> frequencyMap;
     private HashSet<String> stopWordsList;
-    private Properties prop;
-    private String resultsLocation;
+    private String pathToResultsList;
+    private String pathToData;
 
     public WordFrequencyRepository(){
-
+        PropertiesLoader propLoader = PropertiesLoader.getInstance();
+        pathToResultsList = propLoader.getResultsFile();
+        pathToData = propLoader.getDataLocation();
+        updateResultsList();
         initializeStopWords();
     }
 
@@ -227,11 +238,11 @@ public class WordFrequencyRepository {
      * This method takes in fileName, parses and analyze it
      * Validation of fileName will happen in the controller
      * @param fileName - directory of file to be analyzed
+     * @param excludeStopWords - if true, filter stopWords
      * @return Result - the result object that has been analyzed
-     *///TODO STOPWORD
+     */
     public Result analyzeText(String fileName, boolean excludeStopWords){
 
-        results = new ArrayList<>();
         frequencyMap = new HashMap<>();
         // fileName is already validated in the controller
         File file = new File(fileName);
@@ -241,10 +252,9 @@ public class WordFrequencyRepository {
         try {
             scanner = new Scanner(file);
         } catch (FileNotFoundException e){
-            System.err.println(file + " not found in analyzeTest()");
-            return res;
+            e.printStackTrace();
+            return null;
         }
-        res.setFileName(fileName);
         res.setStopSetting(excludeStopWords);
         while(scanner.hasNext()){
             String s = scanner.next();
@@ -255,7 +265,7 @@ public class WordFrequencyRepository {
              *
              * Example : 10, it's, her's, Adam's
              * The regex removes all punctuations except those within words.
-             * This is to prevent truncation of words like
+             * This is to prevent stemming of words like
              *      he'll -> hell or she's -> shes
              */
             s = s.toLowerCase().replaceAll("[\\p{P}&&[^']]|(?<![a-z])'|'(?![a-z])"
@@ -280,7 +290,6 @@ public class WordFrequencyRepository {
         }
         PriorityQueue<Word> wordPQ = new PriorityQueue<>(new WordComparator());
         for (Map.Entry<String, Word> entry : frequencyMap.entrySet()){
-            //System.out.println(entry.getKey());
             wordPQ.add(entry.getValue());
         }
 
@@ -294,5 +303,140 @@ public class WordFrequencyRepository {
             }
         }
         return res;
+    }
+
+    /**
+     * This method takes in a Result object and updates the json File
+     * and results with the newly added Result object
+     * @param result - the newly added object that has been analyzed
+     * @return
+     */
+    public boolean updateResultsList(Result result){
+        JsonReader reader;
+        try{
+            reader = new JsonReader(new FileReader(pathToResultsList));
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        Type typeList = new TypeToken<List<Result>>() {}.getType();
+        Gson gson = new Gson();
+        List<Result> resultsList = gson.fromJson(reader, typeList);
+        resultsList.add(result);
+        Collections.sort(resultsList, new ResultComparator());
+        while(resultsList.size() >= 10){
+            Result toDelete = resultsList.remove(resultsList.size() - 1);
+            try{
+                Files.deleteIfExists(Paths.get(pathToData +
+                        toDelete.getNewFileName() + ".txt"));
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        String jsonResult = gson.toJson(resultsList);
+        try {
+            FileWriter writer = new FileWriter(pathToResultsList);
+            writer.write(jsonResult);
+            writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        this.results = resultsList;
+        return true;
+    }
+
+    /**
+     * This method is called only once during app startup when
+     * WordFrequencyRepository is initialized. Reads
+     * the results.json file and populate the List<Results>
+     */
+    public void updateResultsList(){
+        JsonReader reader;
+        try{
+            reader = new JsonReader(new FileReader(pathToResultsList));
+        } catch (Exception e){
+            e.printStackTrace();
+            return;
+        }
+
+        Type typeList = new TypeToken<List<Result>>() {}.getType();
+        Gson gson = new Gson();
+        results = gson.fromJson(reader, typeList);
+    }
+
+    /**
+     * This method is called in the WordFrequencyService class.
+     * It serves the post request called in the controller to
+     * analyze the post-ed file and adds the results into the
+     * results.json file.
+     * @param newFileName - the name of the file in /data expressed as its timestamp
+     * @param originalFileName - the name of the file when the user uploaded it
+     * @param stopWordSetting - exclude stop words in analysis if true,
+     *                          otherwise if false
+     * @return the Result object used to render the view after post request
+     */
+    public Result analyzeAndUpdate(String newFileName,
+                                     String originalFileName,
+                                     boolean stopWordSetting){
+
+        Result toInsert = analyzeText(pathToData + newFileName, stopWordSetting);
+        if (toInsert == null){
+            System.err.println("Error creating file");
+            return null;
+        }
+        toInsert.setNewFileName(newFileName);
+        toInsert.setOriginalFileName(originalFileName);
+        if (updateResultsList(toInsert)){
+            return toInsert;
+        }
+        return null;
+    }
+
+    /**
+     * Called for GET requests to display a list of past results
+     * @return the list of past results
+     */
+    public List<Result> getResults(){
+        return this.results;
+    }
+
+    /**
+     * Called for GET request to display the previous or current
+     * result based on their new Name, i.e., the time stamp
+     * @return Result object requested
+     */
+    public Result getResultByName(String name){
+        for(Result res : results){
+            String resNewFileName = res.getNewFileName();
+            /**
+             * ddMMyyyyHHmmss.txt -> ddMMyyyyHHmmss
+             */
+            if(resNewFileName.substring(0, resNewFileName.length()-4).equals(name)){
+                return res;
+            }
+        }
+        return null;
+    }
+
+    /** TODO
+     * Delete file referenced by Result
+     * @param res - file to be deleted
+     */
+    public void deleteFileFromDiskAndList(Result res){
+        if(res == null){
+            return;
+        }
+
+        try{
+            if (results.contains(res)){
+
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

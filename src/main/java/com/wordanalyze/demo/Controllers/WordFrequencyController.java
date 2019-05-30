@@ -1,7 +1,9 @@
 package com.wordanalyze.demo.Controllers;
 
 import com.wordanalyze.demo.Exceptions.FileUploadErrorException;
+import com.wordanalyze.demo.POJO.Result;
 import com.wordanalyze.demo.Repositories.WordFrequencyRepository;
+import com.wordanalyze.demo.Services.WordFrequencyService;
 import com.wordanalyze.demo.Utilities.PropertiesLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,41 +27,65 @@ import java.util.Map;
 public class WordFrequencyController implements HandlerExceptionResolver {
 
     @Autowired
-    private WordFrequencyRepository wfRepo;
+    private WordFrequencyService wfService;
+
+    @GetMapping("/")
+    public Result getResultByName(@RequestParam(value="name") String name){
+        Result res = wfService.getResultByName(name);
+        if (res == null){
+            throw new FileUploadErrorException();
+        }
+        return res;
+    }
+
+    @GetMapping("/all")
+    public List<Result> getAllResults(){
+        return wfService.getResults();
+    }
 
     @PostMapping("/")
     public String uploadFileAndAnalyze(@RequestParam("file")MultipartFile file,
+                                       @RequestParam(value = "stopWords", required = false) String stopWords,
                                        RedirectAttributes redirectAttributes){
 
         System.out.println("in post mapping");
         if (file != null){
-            // do something
-            //file.transferTo(); -> location held by dev-app.properties
-            /**
-             * we save the file name as the timestamp so we can have unique name?
-             * do we pass it to something else to do the saving?
-             * How to validate file
-             */
-            System.out.println(System.getProperty("user.dir"));
+
             PropertiesLoader propLoader = PropertiesLoader.getInstance();
-            /*System.out.println("data location " + propLoader.getDataLocation());
+
+            // Uploaded file name saved in /data folder will be names at time
+            // uploaded to prevent collision
             String pattern = "MMddyyyyHHmmss";
             DateFormat df = new SimpleDateFormat(pattern);
             Date now = Calendar.getInstance().getTime();
             String sdf = df.format(now);
-            String newFileName = propLoader.getDataLocation() + "/" + sdf +".txt";
-            System.out.println(newFileName);*/
-            //File newFile = new File(propLoader.getDataLocation());
-            File newFile = new File(System.getProperty("user.dir")+"/data/abc.txt");
+            String newFileName = propLoader.getDataLocation() + sdf +".txt";
+
+            /**
+             * Get name of the file without the path
+             * C:users/text1.txt -> text1.txt
+             */
+            String originalFileName = file.getOriginalFilename();
+            int startIndex = originalFileName.
+                    replaceAll("\\\\", "/").lastIndexOf("/");
+            originalFileName = originalFileName.substring(startIndex + 1);
+
+            File newFile = new File(newFileName);
             try{
-                file.transferTo(newFile);
-                System.out.println("Saved file?");
+                file.transferTo(newFile); // creates a new file to disk
+                boolean stopSetting;
+                if (stopWords == null){
+                    stopSetting = false;
+                }
+                else {
+                    stopSetting = true;
+                }
+                wfService.analyzeFrequency(sdf + ".txt", originalFileName, stopSetting);
             }
             catch (IOException e){
-                System.out.println("Error" + e);
-                return "redirect:/";
+                e.printStackTrace();
+                return "redirect:/"; //TODO redirect :/data/{newFileName}
             }
-            System.out.println("transferedTO DONE");
         }
         else {
             throw new FileUploadErrorException();
@@ -74,7 +97,7 @@ public class WordFrequencyController implements HandlerExceptionResolver {
     public ModelAndView resolveException(HttpServletRequest request,
                                          HttpServletResponse response, Object handler, Exception exception)
     {
-        Map<String, Object> model = new HashMap<String, Object>();
+        Map<String, Object> model = new HashMap<>();
         if (exception instanceof MaxUploadSizeExceededException)
         {
             model.put("errors", exception.getMessage());
