@@ -15,8 +15,8 @@ import java.util.stream.Stream;
 @Service
 public class WordFrequencyService {
 
-    @Autowired
-    WordFrequencyRepository wfRepo;
+   // @Autowired
+    WordFrequencyRepository wfRepo = new WordFrequencyRepository();
 
     public Result analyzeFrequency(String newFileName, String oriFileName, boolean stopSetting){
         return wfRepo.analyzeAndUpdate(newFileName, oriFileName, stopSetting);
@@ -28,5 +28,13 @@ public class WordFrequencyService {
 
     public List<Result> getResults(){
         return wfRepo.getResults();
+    }
+
+    public boolean deleteFile(String file){
+        return wfRepo.deleteFile(file);
+    }
+
+    public boolean deleteAll(){
+        return wfRepo.deleteAll();
     }
 }

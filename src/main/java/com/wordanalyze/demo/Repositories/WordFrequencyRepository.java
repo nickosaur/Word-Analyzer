@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -288,6 +289,7 @@ public class WordFrequencyRepository {
                 updateFrequencyMap(key, s);
             }
         }
+        scanner.close();
         PriorityQueue<Word> wordPQ = new PriorityQueue<>(new WordComparator());
         for (Map.Entry<String, Word> entry : frequencyMap.entrySet()){
             wordPQ.add(entry.getValue());
@@ -306,45 +308,20 @@ public class WordFrequencyRepository {
     }
 
     /**
-     * This method takes in a Result object and updates the json File
-     * and results with the newly added Result object
+     * This method takes in a Result object, adds it into the Results List
+     * and updates the json File with the newly added Result object
      * @param result - the newly added object that has been analyzed
      * @return
      */
     public boolean updateResultsList(Result result){
-        JsonReader reader;
-        try{
-            reader = new JsonReader(new FileReader(pathToResultsList));
-        } catch (Exception e){
-            e.printStackTrace();
-            return false;
+        results.add(result);
+        // sort by newest to oldest
+        Collections.sort(results, new ResultComparator());
+        while(results.size() > 10){
+            Result toDelete = results.remove(results.size() - 1);
+            deleteFileFromDisk(toDelete);
         }
-
-        Type typeList = new TypeToken<List<Result>>() {}.getType();
-        Gson gson = new Gson();
-        List<Result> resultsList = gson.fromJson(reader, typeList);
-        resultsList.add(result);
-        Collections.sort(resultsList, new ResultComparator());
-        while(resultsList.size() >= 10){
-            Result toDelete = resultsList.remove(resultsList.size() - 1);
-            try{
-                Files.deleteIfExists(Paths.get(pathToData +
-                        toDelete.getNewFileName() + ".txt"));
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        String jsonResult = gson.toJson(resultsList);
-        try {
-            FileWriter writer = new FileWriter(pathToResultsList);
-            writer.write(jsonResult);
-            writer.close();
-        } catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-
-        this.results = resultsList;
+        updateResultsFileFromResultsList();
         return true;
     }
 
@@ -357,14 +334,15 @@ public class WordFrequencyRepository {
         JsonReader reader;
         try{
             reader = new JsonReader(new FileReader(pathToResultsList));
+            Type typeList = new TypeToken<List<Result>>() {}.getType();
+            Gson gson = new Gson();
+            results = gson.fromJson(reader, typeList);
+            reader.close();
         } catch (Exception e){
             e.printStackTrace();
-            return;
+            System.err.println("Error reading from results.json");
+            System.exit(-1);
         }
-
-        Type typeList = new TypeToken<List<Result>>() {}.getType();
-        Gson gson = new Gson();
-        results = gson.fromJson(reader, typeList);
     }
 
     /**
@@ -409,7 +387,8 @@ public class WordFrequencyRepository {
      * @return Result object requested
      */
     public Result getResultByName(String name){
-        for(Result res : results){
+        for(int i = 0; i < results.size(); i++){
+            Result res = results.get(i);
             String resNewFileName = res.getNewFileName();
             /**
              * ddMMyyyyHHmmss.txt -> ddMMyyyyHHmmss
@@ -421,22 +400,113 @@ public class WordFrequencyRepository {
         return null;
     }
 
-    /** TODO
+    /**
      * Delete file referenced by Result
-     * @param res - file to be deleted
+     * @param toDelete - file to be deleted
      */
-    public void deleteFileFromDiskAndList(Result res){
-        if(res == null){
-            return;
-        }
-
+    public boolean deleteFileFromDisk(Result toDelete){
         try{
-            if (results.contains(res)){
-
-            }
-
+            Files.deleteIfExists(Paths.get(pathToData +
+                    toDelete.getNewFileName()));
         } catch (Exception e){
             e.printStackTrace();
+            System.err.println("Fail to delete : " +
+                            toDelete.getNewFileName() + " does not exist");
+            return false;
         }
+        return true;
+    }
+
+    /**
+     * Delete file referenced by Result
+     * @param fileName - name of file to be deleted
+     */
+    public boolean deleteFileFromDisk(String fileName){
+        try{
+            Files.deleteIfExists(Paths.get(pathToData +
+                    fileName));
+        } catch (Exception e){
+            e.printStackTrace();
+            System.err.println("Fail to delete : " +
+                    fileName + " does not exist");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Simple delete file from results list and results.json
+     * @param toDelete - file to be deleted
+     */
+    public void deleteFile(Result toDelete){
+        for (int i = 0; i < results.size(); i++){
+            Result res = results.get(i);
+            if (res.getNewFileName().equals(toDelete.getNewFileName())){
+                results.remove(res);
+            }
+        }
+        deleteFileFromDisk(toDelete);
+    }
+
+    /**
+     * Simple delete file from results list and results.json
+     * @param fileName - name of the file to be deleted
+     */
+    public boolean deleteFile(String fileName){
+        for(int i = 0; i < results.size(); i++){
+            Result res = results.get(i);
+            if (res.getNewFileName().equals(fileName)){
+                results.remove(res);
+            }
+        }
+        boolean deleteResult = deleteFileFromDisk(fileName);
+        updateResultsFileFromResultsList();
+        return deleteResult;
+    }
+
+
+    /**
+     * Delete all results from results list and results.json
+     */
+    public boolean deleteAll(){
+
+        for (int i = 0; i < results.size(); i++){
+            Result res = results.get(i);
+            deleteFileFromDisk(res);
+        }
+        try{
+            FileWriter writer = new FileWriter(pathToResultsList);
+            writer.write("[]");
+            writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
+        updateResultsList();
+
+        return true;
+    }
+
+    /**
+     * This method is called when the results list undergoes changes
+     * Changes in results list are reflected
+     * @return true if success, false if results full has not been initialized
+     */
+    public boolean updateResultsFileFromResultsList(){
+        if (results == null){
+            return false;
+        }
+        Gson gson = new Gson();
+        String jsonResult = gson.toJson(results);
+        try {
+            FileWriter writer = new FileWriter(pathToResultsList);
+            writer.write(jsonResult);
+            writer.close();
+        } catch (Exception e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
+        return true;
     }
 }

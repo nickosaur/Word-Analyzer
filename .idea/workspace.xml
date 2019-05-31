@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4129402-60dc-436c-955e-1088e884db06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/ResultNotFoundException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/ResultComparator.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/Chapter 1 - The Great Gatsby.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/abc.txt" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/WordComparator.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/WordComparator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/ResultService.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyServiceTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/05292019212407.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/05292019212641.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/05292019214337.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/FileUploadErrorException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/ResultNotFoundException.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/e2e/src/app.e2e-spec.ts" afterPath="$PROJECT_DIR$/angularclient/e2e/src/app.e2e-spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/e2e/src/app.po.ts" afterPath="$PROJECT_DIR$/angularclient/e2e/src/app.po.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/angularclient/src/app/app-routing.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/app/app.component.spec.ts" afterPath="$PROJECT_DIR$/angularclient/src/app/app.component.spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/app/app.component.ts" afterPath="$PROJECT_DIR$/angularclient/src/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/app/app.module.ts" afterPath="$PROJECT_DIR$/angularclient/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/main.ts" afterPath="$PROJECT_DIR$/angularclient/src/main.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/polyfills.ts" afterPath="$PROJECT_DIR$/angularclient/src/polyfills.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angularclient/src/test.ts" afterPath="$PROJECT_DIR$/angularclient/src/test.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/results.json" afterPath="$PROJECT_DIR$/data/results.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/dev-app.properties" afterPath="$PROJECT_DIR$/src/main/resources/dev-app.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,111 +29,36 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java">
+    <leaf>
+      <file leaf-file-name="WordFrequencyServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-216">
-              <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="-901">
+              <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
               <folding>
-                <element signature="e#831#832#0" expanded="true" />
-                <element signature="e#870#871#0" expanded="true" />
-                <element signature="e#908#909#0" expanded="true" />
-                <element signature="e#942#943#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WordFrequencyController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WordFrequencyController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+            <state relative-caret-position="1656">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1544#1545#0" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileUploadErrorException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/FileUploadErrorException.java">
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="62" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordFrequencyRepository.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="423" column="12" lean-forward="false" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13923#13924#0" expanded="true" />
-                <element signature="e#13958#13959#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOException.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/io/IOException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-              <folding>
-                <element signature="e#1063#1064#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/results.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="405" lean-forward="false" selection-start-line="0" selection-start-column="405" selection-end-line="0" selection-end-column="405" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordFrequencyService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-              <folding>
-                <element signature="e#880#881#0" expanded="true" />
-                <element signature="e#922#923#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dev-app.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dev-app.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+            <state relative-caret-position="240">
+              <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -164,10 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>eat</find>
-      <find>c</find>
-      <find>&quot;al&quot;</find>
-      <find>ousli</find>
       <find>iviti</find>
       <find>endsWith(&quot;y&quot;</find>
       <find>rational</find>
@@ -191,6 +100,13 @@
       <find>getDat</find>
       <find>delete</find>
       <find>update</find>
+      <find>catch</find>
+      <find>reader</find>
+      <find>array</find>
+      <find>JsonReader</find>
+      <find>analyze</find>
+      <find>for(</find>
+      <find>for (</find>
     </findStrings>
     <replaceStrings>
       <replace>exceptionRules</replace>
@@ -232,18 +148,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/WordComparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/ResultService.java" />
-        <option value="$PROJECT_DIR$/data/results.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/ResultComparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dev-app.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/WordComparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/ResultComparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/ResultNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java" />
+        <option value="$PROJECT_DIR$/data/results.json" />
+        <option value="$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyServiceTest.java" />
       </list>
     </option>
   </component>
@@ -278,8 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -340,15 +257,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wordanalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wordanalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="POJO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -398,11 +306,20 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="wordanalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordanalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,14 +342,14 @@
     <property name="RequestMappingsPanelOrder2" value="2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\niyee\Desktop\human_practice\wordanalyzer\src\main\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.wordanalyze.demo.POJO" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\niyee\Desktop\human_practice\wordanalyzer\src\test\java\com\wordanalyze\demo" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.wordanalyze.demo.POJO" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\niyee\Desktop\human_practice\wordanalyzer\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -447,7 +364,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
+  <component name="RunManager" selected="JUnit.WordFrequencyServiceTest">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.wordanalyze.demo.DemoApplication" />
@@ -480,7 +397,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WordFrequencyResultRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordFrequencyServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.wordanalyze.demo.*" />
@@ -491,8 +408,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.wordanalyze.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyResultRepositoryTest" />
-      <option name="METHOD_NAME" />
+      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyServiceTest" />
+      <option name="METHOD_NAME" value="insertFileTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -505,7 +422,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WordFrequencyResultRepositoryTest.test1LongFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.wordanalyze.demo.*" />
@@ -516,8 +433,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.wordanalyze.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyResultRepositoryTest" />
-      <option name="METHOD_NAME" value="test1LongFile" />
+      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyServiceTest" />
+      <option name="METHOD_NAME" value="analyzeAutoUpdateResultsList" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -530,7 +447,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordFrequencyServiceTest.analyzeMultipleFilesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.wordanalyze.demo.*" />
@@ -541,8 +458,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.wordanalyze.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyResultRepositoryTest" />
-      <option name="METHOD_NAME" value="test1LongerFile" />
+      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyServiceTest" />
+      <option name="METHOD_NAME" value="analyzeMultipleFilesTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -555,7 +472,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WordFrequencyResultRepositoryTest.test2LongFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordFrequencyServiceTest.getFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.wordanalyze.demo.*" />
@@ -566,8 +483,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.wordanalyze.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyResultRepositoryTest" />
-      <option name="METHOD_NAME" value="test2LongFile" />
+      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyServiceTest" />
+      <option name="METHOD_NAME" value="getFileTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -580,7 +497,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WordFrequencyResultRepositoryTest.test2SimpleFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WordFrequencyServiceTest.insertAndDeleteFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.wordanalyze.demo.*" />
@@ -591,8 +508,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.wordanalyze.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyResultRepositoryTest" />
-      <option name="METHOD_NAME" value="test2SimpleFile" />
+      <option name="MAIN_CLASS_NAME" value="com.wordanalyze.demo.WordFrequencyServiceTest" />
+      <option name="METHOD_NAME" value="insertAndDeleteFileTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -689,19 +606,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.StemmerTest.test20ForComplicatedWords" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.DemoApplication" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test2SimpleFile" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test1LongFile" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test2LongFile" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test1LongerFile" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.getFileTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.insertAndDeleteFileTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.analyzeMultipleFilesTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.analyzeAutoUpdateResultsList" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test1LongerFile" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test2LongFile" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test1LongFile" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.WordFrequencyResultRepositoryTest.test2SimpleFile" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.analyzeAutoUpdateResultsList" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.analyzeMultipleFilesTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.insertAndDeleteFileTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.WordFrequencyServiceTest.getFileTest" />
       </list>
     </recent_temporary>
   </component>
@@ -720,48 +637,48 @@
       <workItem from="1558935260627" duration="948000" />
       <workItem from="1558984821842" duration="19383000" />
       <workItem from="1559060101037" duration="1512000" />
-      <workItem from="1559072352518" duration="48210000" />
+      <workItem from="1559072352518" duration="48875000" />
+      <workItem from="1559231751814" duration="24151000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 13h 58m 14s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest - 2019.05.30 at 20h 59m 06s.xml">
+      <configuration name="WordFrequencyServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 13h 58m 37s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeAutoUpdateResultsList - 2019.05.30 at 20h 50m 55s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 14h 00m 55s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeAutoUpdateResultsList - 2019.05.30 at 20h 54m 08s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 15h 34m 56s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeAutoUpdateResultsList - 2019.05.30 at 20h 54m 35s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 15h 36m 37s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeAutoUpdateResultsList - 2019.05.30 at 20h 56m 36s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 20h 01m 30s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeAutoUpdateResultsList - 2019.05.30 at 20h 57m 37s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeAutoUpdateResultsList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 20h 03m 08s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeMultipleFilesTest - 2019.05.30 at 20h 34m 59s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeMultipleFilesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 20h 03m 36s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeMultipleFilesTest - 2019.05.30 at 20h 37m 12s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeMultipleFilesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 20h 05m 43s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeMultipleFilesTest - 2019.05.30 at 20h 39m 17s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeMultipleFilesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordFrequencyResultRepositoryTest_test1LongerFile - 2019.05.29 at 20h 09m 15s.xml">
-      <configuration name="WordFrequencyResultRepositoryTest.test1LongerFile" configurationId="JUnit" />
+    <history-entry file="WordFrequencyServiceTest_analyzeMultipleFilesTest - 2019.05.30 at 20h 40m 39s.xml">
+      <configuration name="WordFrequencyServiceTest.analyzeMultipleFilesTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86789000" />
+    <option name="totallyTimeSpent" value="111605000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -771,22 +688,22 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33554083" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3546638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -811,83 +728,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="16" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/test2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="21" column="39" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7710">
-          <caret line="257" column="45" lean-forward="false" selection-start-line="257" selection-start-column="45" selection-end-line="257" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13923#13924#0" expanded="true" />
-            <element signature="e#13958#13959#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/Stemmer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21672">
-          <caret line="907" column="0" lean-forward="false" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/StemmerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7296">
-          <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/Stemmer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21672">
-          <caret line="907" column="0" lean-forward="true" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/StemmerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7296">
-          <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/Stemmer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="136" column="43" lean-forward="false" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/DemoApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/StemmerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -915,13 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Id.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repository.java" />
-    <entry file="file://$PROJECT_DIR$/data/Chapter 1 - The Great Gatsby">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Chapter 1 - The Great Gatsby" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/StemmerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -936,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="21" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,23 +790,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/MultipartResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/MultipartResolver.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/test1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="77" lean-forward="false" selection-start-line="0" selection-start-column="77" selection-end-line="0" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,75 +809,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Configurations/PropertiesSourcesConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Configurations/PropertiesSourcesConfiguration.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Override.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="52" column="8" lean-forward="true" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Configurations/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/UploadException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/abc.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Configurations/AppConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/UploadException.java" />
+    <entry file="file://$PROJECT_DIR$/data/abc.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc-dispatcher-servlet.xml" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE.jar!/org/springframework/web/multipart/MultipartFile.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,30 +834,16 @@
         <state relative-caret-position="540">
           <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="32" />
           <folding>
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="false" />
+            <element signature="e#457#458#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#529#530#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="72" lean-forward="false" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/AppProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/servlet.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/AppProperties.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/DemoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1105,79 +868,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="625" column="6" lean-forward="false" selection-start-line="625" selection-start-column="6" selection-end-line="625" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#908#909#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/FileUploadErrorException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="62" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/ResultNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="71" lean-forward="false" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/ResultComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1185,7 +881,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/dev-app.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
-          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1195,18 +891,155 @@
         <state relative-caret-position="264">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/ResultNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="71" lean-forward="false" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Exceptions/FileUploadErrorException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/io/IOException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+          <folding>
+            <element signature="e#1063#1064#0" expanded="false" />
+            <element signature="e#1093#1094#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/05302019142142.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="286" column="12" lean-forward="false" selection-start-line="286" selection-start-column="12" selection-end-line="286" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/web/servlet/MockMvc.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="60" column="18" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/POJO/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-622">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/05302019200230.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/05302019200556.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyResultRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/05302019202425.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Services/WordFrequencyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="321">
+          <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
           <folding>
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1115">
+          <caret line="406" column="19" lean-forward="false" selection-start-line="406" selection-start-column="19" selection-end-line="406" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1214,38 +1047,35 @@
     <entry file="file://$PROJECT_DIR$/data/results.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="405" lean-forward="false" selection-start-line="0" selection-start-column="405" selection-end-line="0" selection-end-column="405" />
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/io/IOException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+        <state relative-caret-position="240">
+          <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/wordanalyze/demo/WordFrequencyServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
           <folding>
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Utilities/PropertiesLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Controllers/WordFrequencyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wordanalyze/demo/Repositories/WordFrequencyRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="423" column="12" lean-forward="false" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="12" />
+        <state relative-caret-position="1656">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13923#13924#0" expanded="true" />
-            <element signature="e#13958#13959#0" expanded="true" />
           </folding>
         </state>
       </provider>

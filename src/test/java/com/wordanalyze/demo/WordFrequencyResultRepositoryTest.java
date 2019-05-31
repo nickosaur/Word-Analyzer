@@ -70,28 +70,6 @@ public class WordFrequencyResultRepositoryTest {
         assert(wordList.get(1).getWord().equals("daisy"));
         assert(wordList.get(1).getCount() == 30);
 
-        // for external purposes TODO remove
-        PropertiesLoader pl = PropertiesLoader.getInstance();
-        JsonReader reader;
-        try{
-            reader = new JsonReader(new FileReader(pl.getResultsFile()));
-
-            Type typeList = new TypeToken<List<Result>>() {}.getType();
-            Gson gson = new Gson();
-            List<Result> resultsList;
-            resultsList = gson.fromJson(reader, typeList);
-            System.out.println(resultsList.size());
-            String jsonResult = gson.toJson(resultsList);
-
-                FileWriter writer = new FileWriter(pl.getResultsFile());
-                writer.write(jsonResult);
-                writer.close();
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
-        //rl = gson.fromJson(pl.getResultsFile(), Result.class);
-
     }
+
 }
