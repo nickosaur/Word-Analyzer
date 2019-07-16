@@ -44,10 +44,14 @@ public class WordFrequencyController implements HandlerExceptionResolver {
         }
 
         Result res = wfService.getResultByName(name);
-        if (res == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(res, HttpStatus.OK);
+
+		if (res) {
+			return new ResponseEntity<>(res, HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
     }
 
     /**
@@ -72,47 +76,50 @@ public class WordFrequencyController implements HandlerExceptionResolver {
     @PostMapping(value = "/analyze", produces = "application/json")
     public ResponseEntity<Result> uploadFileAndAnalyze(@RequestParam("file") MultipartFile file,
             @RequestParam(value = "stopWords", required = false) String stopWords) {
-        if (file != null) {
+        
+		if (file == null){
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 
-            PropertiesLoader propLoader = PropertiesLoader.getInstance();
+		PropertiesLoader propLoader = PropertiesLoader.getInstance();
 
-            // Uploaded file name saved in /data folder will be names at time
-            // uploaded to prevent collision
-            String pattern = "MMddyyyyHHmmss";
-            DateFormat df = new SimpleDateFormat(pattern);
-            Date now = Calendar.getInstance().getTime();
-            String sdf = df.format(now);
-            String newFileName = propLoader.getDataLocation() + sdf + ".txt";
+        // Uploaded file name saved in /data folder will be names at time
+        // uploaded to prevent collision
+        String pattern = "MMddyyyyHHmmss";
+        DateFormat df = new SimpleDateFormat(pattern);
+        Date now = Calendar.getInstance().getTime();
+        String sdf = df.format(now);
+        String newFileName = propLoader.getDataLocation() + sdf + ".txt";
 
-            /**
-             * Get name of the file without the path C:users/text1.txt -> text1.txt
-             */
-            String originalFileName = file.getOriginalFilename();
-            int startIndex = originalFileName.replaceAll("\\\\", "/").lastIndexOf("/");
-            originalFileName = originalFileName.substring(startIndex + 1);
+        /**
+            * Get name of the file without the path C:users/text1.txt -> text1.txt
+            */
+        String originalFileName = file.getOriginalFilename();
+        int startIndex = originalFileName.replaceAll("\\\\", "/").lastIndexOf("/");
+        originalFileName = originalFileName.substring(startIndex + 1);
 
-            File newFile = new File(newFileName);
-            Result res;
-            try {
-                file.transferTo(newFile); // creates a new file to disk
-                boolean stopSetting;
-                if (stopWords == null) {
-                    stopSetting = false;
-                } else {
-                    stopSetting = true;
-                }
-                res = wfService.analyzeFrequency(sdf + ".txt", originalFileName, stopSetting);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        File newFile = new File(newFileName);
+        Result res;
+        try {
+            file.transferTo(newFile); // creates a new file to disk
+            boolean stopSetting;
+            if (stopWords == null) {
+                stopSetting = false;
+            } else {
+                stopSetting = true;
             }
-            if (res != null) {
-                return new ResponseEntity<>(res, HttpStatus.CREATED);
-            }
-            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
-        } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            res = wfService.analyzeFrequency(sdf + ".txt", originalFileName, stopSetting);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
+
+        if (res) {
+			return new ResponseEntity<>(res, HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+
     }
 
     @PostMapping(value = "/delete/{name}", produces = "application/json")
@@ -137,9 +144,14 @@ public class WordFrequencyController implements HandlerExceptionResolver {
     public void downloadText(HttpServletResponse response,
                              @PathVariable("name") String fileName){
 
+		
+        String fileNameNoExtension = fileName.substring(0, fileName.length() - 4);
+		if (!fileNameNoExtension.matches("\\d+")){
+			return;
+		}
+
         PropertiesLoader propLoader = PropertiesLoader.getInstance();
 
-        String fileNameNoExtension = fileName.substring(0, fileName.length() - 4);
         Result result = wfService.getResultByName(fileNameNoExtension);
 
         Path file = Paths.get(propLoader.getDataLocation(), fileName);
